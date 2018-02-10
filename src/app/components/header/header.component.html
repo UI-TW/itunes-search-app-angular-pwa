@@ -1,0 +1,48 @@
+<div class="navbar-fixed">
+    <nav class="nav dark-primary-color">
+      <h1 id="appHeader" role="button" class="title u-pointer">Music finder</h1>
+      <div class="spacer"></div>
+      <ul class="menu">
+        <ng-container *ngIf="isLoggedIn">
+        <li *ngIf="isLoggedIn" routerLinkActive="active" class="menu__item">
+          <a href="javascript:void(0);" class="menu__link user_info">
+            <i class="material-icons">person</i>
+            {{email}}
+          </a>
+        </li>
+        <li class="menu__item">
+          <a href="javascript:void(0);" id="logoutLink" class="menu__link">
+            <i class="material-icons">settings_power</i>
+            <span class='icon-text'>Logout</span>
+          </a>
+        </li>
+      </ng-container>
+      <ng-container *ngIf="!isLoggedIn">
+        <li class="menu__item">
+          <a href="javascript:void(0);" class="menu__link user_info">
+            <i class="material-icons">person</i>
+            {{email}}
+          </a>
+        </li>
+        <li routerLinkActive="active" class="menu__item">
+          <a routerLink="/login" id="loginLink" class="menu__link">
+            <i class="material-icons">input</i>
+            <span class='icon-text'>Login/Signup</span>
+          </a>
+        </li>
+      </ng-container>
+        <li routerLinkActive="active" class="menu__item">
+          <a routerLink="/" id="searchLink" class="menu__link">
+            <i class="material-icons">search</i>
+            <span class='icon-text'>Search</span>
+          </a>
+        </li>
+        <li routerLinkActive="active" class="menu__item">
+          <a routerLink="/upvotes" id="favLink" class="menu__link">
+            <i class="material-icons">favorite</i>
+            <span class='icon-text'>Upvotes</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+</div>

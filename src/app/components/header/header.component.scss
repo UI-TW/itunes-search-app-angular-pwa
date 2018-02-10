@@ -1,0 +1,72 @@
+@import '../../styles/palette';
+
+.nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu__link {
+    padding: 2px;
+  }
+  
+  .menu__item.active a,
+  .menu__item.active:hover {
+    background: $text-primary-color;
+    color: $dark-primary-color;
+  }
+  
+  .menu__link .material-icons {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .title {
+    font-size: 14px;
+    margin: 10px 0 10px 10px;
+  }
+  
+  .spacer {
+    flex: 1;
+  }
+  
+  .user_info:hover {
+    background: $dark-primary-color;
+  }
+  
+  @media only screen and (min-width: 360px) {
+    .title {
+      font-size: 17px;
+    }
+  
+    .menu__link {
+      padding: 0 3px;
+    }
+  }
+  
+  @media only screen and (min-width: 414px) {
+    .title {
+      font-size: 20px;
+    }
+  
+    .menu__link {
+      padding: 0 6px;
+    }
+  }
+  
+  @media only screen and (min-width: 640px) {
+    .title {
+      font-size: 24px;
+    }
+    .menu__link {
+      padding: 0 15px;
+    }
+  }
+  
+  @media only screen and (max-width: 640px) {
+    .icon-text {
+      display: none;
+    }
+    .menu__link .material-icons {
+      padding: 0 10px;
+    }
+  }

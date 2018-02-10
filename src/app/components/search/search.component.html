@@ -1,0 +1,54 @@
+<div>
+    <div class="nav-wrapper">
+      <div class="dropdown-wrapper">
+        <a class="dropdown-button btn blue accent-4" role="button" data-activates="search-options"> <i
+          class="material-icons right">arrow_drop_down</i>{{media}} </a>
+        <ul id="search-options" class="dropdown-content">
+          <li *ngFor="let option of options">
+            <a tabindex="0" role="button" class="primary-text-color">
+              {{option}}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="search-wrapper">
+        <label for="searchField"><i class="material-icons black-text">search</i></label>
+        <input #searchField (keyup.enter)="onSearch(searchField.value)" type="text" placeholder="Search" class="search-input white black-text"/>
+      </div>
+    </div>
+    <div id="search_results"></div>
+</div>
+
+<div class="list-wrapper">
+    <div class="card-wrapper" *ngFor="let item of results">
+        <div class="card u-flex">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img
+                        alt="img"
+                        class="activator"
+                        [src]="item.artworkUrl100"
+                />
+            </div>
+            <div class="card-content u-flex">
+                <div class="card-header u-flex u-pointer">
+                    <span class="card-title grey-text text-darken-4 activator">{{collectionName}}</span>
+                    <i class="material-icons right activator">more_vert</i>
+                </div>
+                <div class="card-actions u-flex">
+                    <i *ngIf="isLoggedIn" class="material-icons like-icon u-pointer" (click)="upvoteCollection(item)">
+                        thumb_up
+                        <input type="hidden" value="{{item.collectionId}}">
+                    </i>
+                    <a target="_blank" href="{{item.trackViewUrl}}">
+                        More
+                    </a>
+                </div>
+            </div>
+            <div class="card-reveal">
+
+                <p class="card-title grey-text text-darken-4">{{item.trackName}} <i class="material-icons right">close</i></p>
+                <p class="card-content  grey-text text-darken-1">{{item.artistName}}</p>
+            </div>
+        </div>
+    </div>
+</div>

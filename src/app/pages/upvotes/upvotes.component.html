@@ -1,0 +1,18 @@
+<div class="upvote-page">
+    <ng-container *ngFor="let item of upvotes">
+    <a target="_blank" [href]="item.collectionViewUrl">
+      <div class="card">
+        <div class="card-info">
+          <div class="card-info__ranking">
+            <i class="material-icons like-icon u-pointer">favorite</i>
+            <div>{{item.count}}</div>
+          </div>
+          <h3 class="card-info__title">{{item.collectionName}}</h3>
+        </div>
+        <div class="card-image">
+          <img [src]="item.artworkUrl100">
+        </div>
+      </div>
+    </a>
+  </ng-container>
+</div>
