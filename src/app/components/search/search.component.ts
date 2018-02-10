@@ -10,6 +10,7 @@ import {AuthenticationService} from '../../services/authentication.service';
 })
 export class SearchComponent implements OnInit {
   isLoggedIn = false;
+  media='All';
   results = [];
   options = [
     'All',
@@ -42,7 +43,7 @@ export class SearchComponent implements OnInit {
 
   onSearch(query){
     this.searchService
-        .search(undefined, query)
+        .search(this.media, query)
         .subscribe((res: any) => {
           this.results = res.results;
         });
