@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import apisettings from '../apisettings';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import {Router} from '@angular/router';
+import {tap} from 'rxjs/operators';
 
 @Injectable()
 export class AuthenticationService{
@@ -20,21 +21,35 @@ export class AuthenticationService{
     }
 
     login(credentials: {email: string, password: string}){
-        this.http.post(apisettings.url.login, credentials)
-            .subscribe((res: any) => {
-                this.loginSubscription.next(res.success);
-                this.setAuthToken(res.token);
-                this.setLoggedInUserName(res.email);
-            });
+        return this.http.post(apisettings.url.login, credentials)
+            .pipe(
+                tap((res: any) => {
+                    if(res.success){
+                        this.loginSubscription.next(res.success);
+                        this.setAuthToken(res.token);
+                        this.setLoggedInUserName(res.email);
+                    }
+                    else {
+                        
+                    }
+                })
+            );
     }
 
     signup(userDetails: {email: string, password: string}){
-        this.http.post(apisettings.url.signup, userDetails)
-            .subscribe((res: any) => {
-                this.loginSubscription.next(res.success);
-                this.setAuthToken(res.token);
-                this.setLoggedInUserName(res.email);
-            });
+        return this.http.post(apisettings.url.signup, userDetails)
+            .pipe(
+                tap((res: any) => {
+                    if(res.success){
+                        this.loginSubscription.next(res.success);
+                        this.setAuthToken(res.token);
+                        this.setLoggedInUserName(res.email);
+                    }
+                    else {
+    
+                    }
+                })
+            );
     }
 
     logout(){

@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
@@ -19,6 +23,7 @@ import { HeaderComponent } from './components/header/header.component';
 import {SearchService} from './services/search.service';
 import {UpvoteService} from './services/upvote.service';
 import {AuthenticationService} from './services/authentication.service';
+import {SubscriptionService} from './services/subscription.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +38,10 @@ import {AuthenticationService} from './services/authentication.service';
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
     HttpClientModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     RouterModule
@@ -40,7 +49,8 @@ import {AuthenticationService} from './services/authentication.service';
   providers: [
     SearchService,
     UpvoteService,
-    AuthenticationService
+    AuthenticationService,
+    SubscriptionService
   ],
   bootstrap: [AppComponent]
 })

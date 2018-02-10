@@ -2,24 +2,32 @@
     <h5 class="login__title primary-text-color">Login / Signup</h5>
     <div class="z-depth-1 row form-container">
         <form class="col s12">
+            <div class="row" *ngIf="requestInProgress">
+                    <mat-spinner class="spinner"></mat-spinner>
+            </div>
             <div class="row">
+            <!-- <mat-form-field class="full-width"> -->
                 <div class="col s12">
                     <div class="input-field">
                         <i class="material-icons prefix">email</i>
-                        <input #email id="email" type="email" class="validate">
-                        <label for="email" data-error="wrong" data-success="right">Email</label>
+                        <input matInput placeholder="Email" #email id="email" type="email" class="validate">
                     </div>
                 </div>
+            <!-- </mat-form-field> -->
             </div>
+            
+            
             <div class="row">
+            <!-- <mat-form-field class="full-width"> -->
                 <div class="col s12">
                     <div class="input-field">
                         <i class="material-icons prefix">lock</i>
-                        <input #password id="password" type="password" class="validate">
-                        <label for="password" data-error="wrong" data-success="right">Password</label>
+                        <input matInput placeholder="Password"  #password id="password" type="password" class="validate">
                     </div>
                 </div>
+            <!-- </mat-form-field> -->
             </div>
+            
             <div class="row">
                 <div class="col s12">
                     <a id="btn-signup" (click)="signup(email.value, password.value)" class="col s5 offset-s1 accent-color btn waves-effect waves-light">

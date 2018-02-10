@@ -1,5 +1,13 @@
 @import '../../styles/palette';
 
+.full-width{
+    width: 60%;
+}
+
+.spinner{
+    margin: auto;
+}
+
 .login {
     display: flex;
     flex-direction: column;

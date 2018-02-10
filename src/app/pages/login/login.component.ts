@@ -9,17 +9,32 @@ import {AuthenticationService} from '../../services/authentication.service';
 export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthenticationService) { }
-
+  requestInProgress = false;
   ngOnInit() {
     
   }
 
-  login(email: string, password: string){
-    this.authService.login({email, password});
+  login(email: string, password: string){    
+    if(email && password){
+      this.requestInProgress = true;
+      this.authService
+          .login({email, password})
+          .subscribe(() => {
+            this.requestInProgress = false;
+          });
+    }
+    
   }
 
   signup(email: string, password: string){
-    this.authService.signup({email, password});
+    if(email && password){
+      this.requestInProgress = true;
+      this.authService
+          .signup({email, password})
+          .subscribe(() => {
+            this.requestInProgress = false;
+          });
+    }
   }
 
 }

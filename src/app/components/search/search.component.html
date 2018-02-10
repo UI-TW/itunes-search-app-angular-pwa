@@ -1,7 +1,12 @@
 <div>
     <div class="nav-wrapper">
       <div class="dropdown-wrapper">
-        <a class="dropdown-button btn blue accent-4" role="button" data-activates="search-options"> <i
+        <mat-select [(value)]="media" id="search-options" placeholder="Favorite food">
+            <mat-option *ngFor="let option of options" [value]="option">
+                {{ option }}
+            </mat-option>
+        </mat-select>
+        <!-- <a class="dropdown-button btn blue accent-4" role="button" data-activates="search-options"> <i
           class="material-icons right">arrow_drop_down</i>{{media}} </a>
         <ul id="search-options" class="dropdown-content">
           <li *ngFor="let option of options">
@@ -9,7 +14,7 @@
               {{option}}
             </a>
           </li>
-        </ul>
+        </ul> -->
       </div>
       <div class="search-wrapper">
         <label for="searchField"><i class="material-icons black-text">search</i></label>

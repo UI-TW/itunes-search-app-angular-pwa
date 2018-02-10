@@ -1,4 +1,6 @@
-  #online-status,
+@import "./styles/palette";
+
+#online-status,
   #online-status.online {
     height: 0;
     opacity: 0;
@@ -19,4 +21,15 @@
   
   #online-status .row {
     margin-bottom: 0
+  }
+
+  #subscribeLink {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  #subscribeLink:hover,
+  #subscribeLink:focus {
+    background: $default-primary-color;
   }
