@@ -3,10 +3,18 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
 
 `ng new music-finder --directory ./ --service-worker --routing --style scss`
+
 `ng g universal music-finder-server`
+
 `npm install`
+
 `ng g app-shell appShell --universal-app=music-finder-server`
+
 `ng build --prod --app=music-finder-server`
+
+`ng build --prod`
+
+`https://music-finder-342fa.firebaseapp.com`
 
 
 ## Development server
