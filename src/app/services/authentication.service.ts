@@ -28,6 +28,7 @@ export class AuthenticationService{
                         this.loginSubscription.next(res.success);
                         this.setAuthToken(res.token);
                         this.setLoggedInUserName(res.email);
+                        this.router.navigateByUrl('/');
                     }
                     else {
                         
@@ -44,6 +45,7 @@ export class AuthenticationService{
                         this.loginSubscription.next(res.success);
                         this.setAuthToken(res.token);
                         this.setLoggedInUserName(res.email);
+                        this.router.navigateByUrl('/');
                     }
                     else {
     
@@ -52,16 +54,25 @@ export class AuthenticationService{
             );
     }
 
-    logout(){
-
+    initializeFromStorage(){
+        if(this.isLoggedIn()){
+            this.loginSubscription.next(true);
+        }
     }
 
-    private setAuthToken(token: string){
-        sessionStorage.setItem('token', token);        
+    logout(){
+        sessionStorage.clear();
+        this.loginSubscription.next(false);
         this.router.navigateByUrl('/');
     }
 
+    private setAuthToken(token: string){
+        sessionStorage.setItem('token', token);                
+    }
+
     private setLoggedInUserName(email: string){
+        const regex = /@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+        email = email.replace(regex, '');
         sessionStorage.setItem('email', email);
     }
 

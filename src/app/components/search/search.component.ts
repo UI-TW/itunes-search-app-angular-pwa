@@ -38,6 +38,7 @@ export class SearchComponent implements OnInit {
   }
 
   upvoteCollection(collection: any){
+    collection.upvoted = true;
     this.upvoteService.upvoteCollection(collection);
   }
 

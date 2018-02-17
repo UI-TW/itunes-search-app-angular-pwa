@@ -13,7 +13,7 @@
         <li class="menu__item">
           <a href="javascript:void(0);" id="logoutLink" class="menu__link">
             <i class="material-icons">settings_power</i>
-            <span class='icon-text'>Logout</span>
+            <span class='icon-text' (click)="logout()">Logout</span>
           </a>
         </li>
       </ng-container>
@@ -32,7 +32,7 @@
         </li>
       </ng-container>
         <li routerLinkActive="active" class="menu__item">
-          <a routerLink="/" id="searchLink" class="menu__link">
+          <a routerLink="/home" id="searchLink" class="menu__link">
             <i class="material-icons">search</i>
             <span class='icon-text'>Search</span>
           </a>

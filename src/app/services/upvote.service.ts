@@ -2,12 +2,15 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import apisettings from '../apisettings';
 import {AuthenticationService} from './authentication.service';
+import {MatSnackBar} from '@angular/material';
+
 
 @Injectable()
 export class UpvoteService{
     constructor(
         private http: HttpClient,
-        private auth: AuthenticationService
+        private auth: AuthenticationService,
+        private snackBar: MatSnackBar
     ){
         
     }
@@ -26,7 +29,9 @@ export class UpvoteService{
             this.http
                 .post(apisettings.url.upvote, collection, httpOptions)
                 .subscribe((res: any) => {
-                    console.log(res);
+                    this.snackBar.open('Upvoted successfully', null, {
+                        duration: 2000
+                    });
                 });
         }
         

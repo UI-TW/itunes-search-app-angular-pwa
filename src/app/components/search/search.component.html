@@ -36,11 +36,10 @@
             </div>
             <div class="card-content u-flex">
                 <div class="card-header u-flex u-pointer">
-                    <span class="card-title grey-text text-darken-4 activator">{{collectionName}}</span>
-                    <i class="material-icons right activator">more_vert</i>
+                    <span class="card-title grey-text text-darken-4 activator">{{item.collectionName}}</span>
                 </div>
                 <div class="card-actions u-flex">
-                    <i *ngIf="isLoggedIn" class="material-icons like-icon u-pointer" (click)="upvoteCollection(item)">
+                    <i *ngIf="isLoggedIn" class="material-icons like-icon u-pointer" [ngClass]="{'active-icon': item.upvoted}" (click)="upvoteCollection(item)">
                         thumb_up
                         <input type="hidden" value="{{item.collectionId}}">
                     </i>
